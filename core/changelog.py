@@ -42,7 +42,7 @@ class Version:
 class ChangeLog:
 
     changelog_url = 'https://raw.githubusercontent.com/kyb3r/modmail/master/CHANGELOG.md'
-    regex = re.compile(r'# (v\d+\.\d+\.\d+)([\S\s]*?(?=# v))')
+    regex = re.compile(r'# (v\d+\.\d+\.\d+)([\S\s]*?(?=# v|$))')
 
     def __init__(self, bot, text):
         self.bot = bot 
@@ -66,4 +66,3 @@ class ChangeLog:
 if __name__ == '__main__':
     with open('../CHANGELOG.md') as f:
         changelog = ChangeLog(f.read())
-        print(changelog.latest_version)
